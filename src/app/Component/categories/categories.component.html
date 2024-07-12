@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<app-header></app-header>
+<section>
+  <div class="categories-container">
+    <div class="categories-left">
+      <div class="categories-head">
+        <h4 style="text-decoration: underline;"><strong>Categories</strong></h4>
+      </div>
+      <div class="head-card" *ngFor="let article of paginatedNews">
+        <div class="card-text">
+          <a [href]="article.url">
+            <p>{{article.description}}</p>
+          </a>
+        </div>
+        <div class="card-image">
+          <img [src]="article.urlToImage" alt="">
+        </div>
+      </div>
+    </div>
+    <div class="categories-right">
+      <div class="right-sub-head">
+        <h2>Popular-trends</h2>
+      </div>
+      <div class="right-card" *ngFor="let article of paginatedNews">
+        <span class="right-head">
+          <h2>{{article.id}}</h2>
+        </span>
+        <div>
+          <p><a [href]="article.url">{{article.title}}</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button *ngFor="let page of [].constructor(totalPages); let i = index"
+            [class.active]="i + 1 === currentPage"
+            (click)="changePage(i + 1)">
+      {{ i + 1 }}
+    </button>
+  </div>
+</section>
+<app-footer></app-footer>

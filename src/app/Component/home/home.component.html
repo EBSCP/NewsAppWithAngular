@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News Website</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<app-header></app-header>
+
+<section>
+  <!-- Some Important Stuff here  -->
+  <div class="header">
+    <div class="container">
+      <div class="slider">
+        <div *ngFor="let article of newsData.articles.slice(2,4) "class="testimonal" id="testimonal-1">
+          <div class="user-text">
+           <a [href] ="article.url"> <h3>{{article.title}}</h3></a>
+            <p>{{article.description}}</p>
+          </div>
+          <div class="img">
+            <img [src]="article.urlToImage" alt="" class="user">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="news-editor">
+      <div class="news-editor-edit">
+        <div class="heading">
+          <h2>Editor Picking</h2>
+        </div>
+        <div class="sub-head">
+          <div *ngFor="let article of newsData.articles.slice(4, 5)" class="sub-head-big-part">
+            <img [src]="article.urlToImage" alt="{{ article.title }}">
+            <h3>{{article.title}}</h3>
+            <p style="font-size:15px;">{{article.description}}</p>
+           <strong>{{article.author}}</strong>
+          </div>
+          <div class="sub-head-small-part">
+            <ul>
+              <li *ngFor="let article of newsData.articles.slice(6, 9)">
+                <img [src]="article.urlToImage" alt="{{ article.title }}">
+                <h4><a [href]="article.url">{{ article.title }}</a></h4>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="news-editor-trend">
+        <div class="trend-heading">
+          <h2>Trending</h2>
+        </div>
+        <div class="trend-news">
+          <ul>
+            <li *ngFor="let article of newsData.articles.slice(9, 12)">
+              <p><a [href]="article.url">{{ article.title }}</a></p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-container" *ngFor="let article of newsData.articles.slice(12, 13)">
+      <div class="container-image">
+        <img [src]="article.urlToImage" alt="{{ article.title }}">
+      </div>
+      <div class="container-text">
+        <h4>{{article.title}}</h4>
+        <p>{{article.description}}</p>
+      </div>
+    </div>
+
+    <div class="row category-section">
+      <div class="col-md-6">
+        <div class="title">Politics</div>
+        <div *ngFor="let article of newsData.articles.slice(13, 16)" class="news-item">
+          <img [src]="article.urlToImage" alt="">
+          <div>
+            <a [href]="article.url" target="_blank">
+              <h5>{{ article.title }}</h5>
+            </a>
+            <p>{{ article.description }}</p>
+            <small>{{article.author}}</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="title">Business</div>
+        <div *ngFor="let article of newsData.articles.slice(16,19)" class="news-item">
+          <img [src]="article.urlToImage" alt="">
+          <div>
+            <a [href]="article.url">
+              <h5>{{ article.title }}</h5>
+            </a>
+            <p>{{ article.description }}</p>
+            <small>Dave Rogers in News | Jun 14 | 3 min read</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 recent-news">
+          <div class="title">Recent News</div>
+          <div *ngFor="let article of newsData.articles.slice(19, 22)" class="news-item">
+            <a [href]="article.url">
+              <h5>{{article.title}}</h5>
+            </a>
+            <p>{{ article.description }}</p>
+            <img [src]="article.urlToImage" alt="{{ article.title }}">
+            <small>{{article.author}}</small>
+          </div>
+        </div>
+        <div class="col-md-4 popular-posts">
+          <div class="title">Popular Posts</div>
+          <div *ngFor="let article of newsData.articles.slice(22, 25)" class="popular-item">
+            <div class="index">{{article.id}}</div>
+            <div>
+              <a [href]="article.url">
+                <h5>{{ article.title }}</h5>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<app-footer></app-footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
