@@ -1,3 +1,4 @@
+/* Global styles */
 body {
   font-family: Arial, sans-serif;
   margin: 20px;
@@ -267,4 +268,94 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #007bff;
   color: white;
   border-color: #007bff;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+  /* For mobile devices */
+  body {
+    margin: 10px;
+  }
+
+  ul {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  li {
+    display: block;
+    margin: 0 0 10px 0;
+  }
+
+  .news-container {
+    flex-direction: column;
+    margin-left: 0;
+    padding-right: 0;
+    align-items: center;
+  }
+
+  .container-left h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .container-right {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container-right input[type="text"] {
+    width: 90%;
+    margin: 10px 0;
+  }
+
+  .container-right button {
+    width: 90%;
+  }
+
+  .newsletter-subscribe input {
+    margin-left: 0;
+    width: 80%;
+  }
+
+  .categories-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .categories-left, .categories-right {
+    width: 100%;
+    padding-left: 0;
+    align-items: center;
+  }
+
+  .categories-head, .head-card {
+    width: 90%;
+    margin-left: 0;
+  }
+
+  .head-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-text {
+    text-align: center;
+  }
+
+  .card-image {
+    margin-right: 0;
+  }
+
+  .right-sub-head, .right-head, .right-card {
+    width: 90%;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .pagination button {
+    margin: 10px 5px;
+    width: 40px;
+    height: 40px;
+  }
 }
